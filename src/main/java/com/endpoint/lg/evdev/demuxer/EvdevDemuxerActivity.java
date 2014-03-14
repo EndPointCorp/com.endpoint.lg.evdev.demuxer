@@ -63,8 +63,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
    *          the key event
    */
   @Subscribe
-  public void onKeyUpdate(InputKeyEvent keyEvent) {
-    getLog().info("sending key event");
+  public void publishKeyUpdate(InputKeyEvent keyEvent) {
     sendOutputJsonBuilder("key", InputKeyEvent.serialize(keyEvent));
   }
 
@@ -75,8 +74,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
    *          the updated state
    */
   @Subscribe
-  public void onAbsUpdate(InputAbsState absState) {
-    getLog().info("sending abs update");
+  public void publishAbsUpdate(InputAbsState absState) {
     sendOutputJsonBuilder("abs", absState.getNonZeroAsJsonBuilder());
   }
 
@@ -87,8 +85,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
    *          the updated state
    */
   @Subscribe
-  public void onRelUpdate(InputRelState relState) {
-    getLog().info("sending rel update");
+  public void publishRelUpdate(InputRelState relState) {
     sendOutputJsonBuilder("rel", relState.getDirtyAsJsonBuilder());
   }
 
