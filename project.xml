@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project type="activity" builder="java">
+    <name>Event Device Demuxer</name>
+    <description>
+Separates and aggregates different types of input events.
+    </description>
+
+    <identifyingName>com.endpoint.lg.evdev.demuxer</identifyingName>
+    <version>1.0.0.dev</version>
+</project>
