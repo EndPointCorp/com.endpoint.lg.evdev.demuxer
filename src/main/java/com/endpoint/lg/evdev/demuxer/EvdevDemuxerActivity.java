@@ -36,7 +36,23 @@ import com.endpoint.lg.support.evdev.InputEventTypes;
 import com.endpoint.lg.support.evdev.InputKeyEvent;
 
 /**
- * An activity for separating and aggregating raw user input events.
+ * An activity for separating and aggregating raw user input events. This is
+ * intended to simplify the input event handling of other activities by
+ * offloading event type detection and axis tracking loops.
+ * 
+ * <p>
+ * EV_KEY events are re-published immediately as serialized
+ * <code>InputKeyEvent</code> objects.
+ * 
+ * <p>
+ * EV_ABS events are collected into a state tracking object. A loop publishes
+ * the complete EV_ABS state as a serialized <code>InputAbsState</code>
+ * periodically.
+ * 
+ * <p>
+ * EV_REL events are also collected into a state tracking object. A loop
+ * publishes and then clears the serialized <code>InputRelState</code>
+ * periodically.
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
