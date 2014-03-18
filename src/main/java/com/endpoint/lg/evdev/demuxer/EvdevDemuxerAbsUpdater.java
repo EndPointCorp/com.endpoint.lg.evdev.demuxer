@@ -36,7 +36,7 @@ public class EvdevDemuxerAbsUpdater implements Updateable {
 
   public EvdevDemuxerAbsUpdater(EventBus eventBus) {
     this.eventBus = eventBus;
-    
+
     absState = new InputAbsState();
   }
 
@@ -45,12 +45,12 @@ public class EvdevDemuxerAbsUpdater implements Updateable {
    */
   @Override
   public void update() {
-    if (absState.isDirty()) {
+    if (absState.isDirty() || absState.isNonZero()) {
       eventBus.post(absState);
       absState.clear();
     }
   }
-  
+
   /**
    * Generates a handler for updating the axis aggregator.
    */

@@ -91,7 +91,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
    */
   @Subscribe
   public void publishAbsUpdate(InputAbsState absState) {
-    sendOutputJsonBuilder("abs", absState.getNonZeroAsJsonBuilder());
+    sendOutputJsonBuilder("abs", absState.getJsonBuilder());
   }
 
   /**
@@ -102,7 +102,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
    */
   @Subscribe
   public void publishRelUpdate(InputRelState relState) {
-    sendOutputJsonBuilder("rel", relState.getDirtyAsJsonBuilder());
+    sendOutputJsonBuilder("rel", relState.getJsonBuilder());
   }
 
   @Override
