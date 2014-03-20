@@ -36,7 +36,7 @@ public class EvdevDemuxerRelUpdater implements Updateable {
 
   public EvdevDemuxerRelUpdater(EventBus eventBus) {
     this.eventBus = eventBus;
-    
+
     relState = new InputRelState();
   }
 
@@ -46,7 +46,7 @@ public class EvdevDemuxerRelUpdater implements Updateable {
   public void update() {
     if (relState.isDirty()) {
       eventBus.post(relState);
-      relState.clear();
+      relState.zero();
     }
   }
 

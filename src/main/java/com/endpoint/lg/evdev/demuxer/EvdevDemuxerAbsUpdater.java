@@ -47,7 +47,7 @@ public class EvdevDemuxerAbsUpdater implements Updateable {
   public void update() {
     if (absState.isDirty() || absState.isNonZero()) {
       eventBus.post(absState);
-      absState.clear();
+      absState.clean();
     }
   }
 
