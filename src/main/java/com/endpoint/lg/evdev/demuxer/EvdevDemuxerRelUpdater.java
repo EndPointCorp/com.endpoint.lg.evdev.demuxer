@@ -49,6 +49,9 @@ public class EvdevDemuxerRelUpdater implements Updateable {
 
   /**
    * Publish a state update, if the state has changed since the last update.
+   * 
+   * The state *must* be handled completely and synchronously by the receiving
+   * handler, since it is cleared immediately after posting.
    */
   public void update() {
     if (relState.isDirty()) {
