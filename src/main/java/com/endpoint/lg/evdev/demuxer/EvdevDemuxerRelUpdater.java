@@ -33,11 +33,18 @@ import com.endpoint.lg.support.evdev.InputRelState;
 public class EvdevDemuxerRelUpdater implements Updateable {
   private EventBus eventBus;
   private InputRelState relState;
+  private InputEventHandler handler;
 
   public EvdevDemuxerRelUpdater(EventBus eventBus) {
     this.eventBus = eventBus;
 
     relState = new InputRelState();
+
+    handler = new InputEventHandler() {
+      public void handleEvent(InputEvent event) {
+        relState.update(event);
+      }
+    };
   }
 
   /**
@@ -54,10 +61,6 @@ public class EvdevDemuxerRelUpdater implements Updateable {
    * Generates a handler for updating the axis aggregator.
    */
   public InputEventHandler getHandler() {
-    return new InputEventHandler() {
-      public void handleEvent(InputEvent event) {
-        relState.update(event);
-      }
-    };
+    return handler;
   }
 }
