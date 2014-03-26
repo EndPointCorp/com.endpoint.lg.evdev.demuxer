@@ -26,7 +26,6 @@ import com.endpoint.lg.evdev.demuxer.EvdevDemuxerAbsUpdater;
 import com.endpoint.lg.support.evdev.InputAbsState;
 import com.endpoint.lg.support.evdev.InputEvent;
 import com.endpoint.lg.support.evdev.InputEventHandler;
-import com.endpoint.lg.support.evdev.InputRelState;
 
 import static com.endpoint.lg.support.evdev.InputEventTypes.*;
 import static com.endpoint.lg.support.evdev.InputEventCodes.*;
