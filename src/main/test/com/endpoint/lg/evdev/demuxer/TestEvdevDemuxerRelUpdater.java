@@ -1,4 +1,4 @@
-package com.endpoint.lg.evdev.demuxer.test;
+package com.endpoint.lg.evdev.demuxer;
 
 import static org.junit.Assert.*;
 import interactivespaces.util.data.json.JsonNavigator;
