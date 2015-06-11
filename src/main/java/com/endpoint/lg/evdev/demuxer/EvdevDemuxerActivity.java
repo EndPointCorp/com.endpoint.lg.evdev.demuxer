@@ -19,7 +19,7 @@ package com.endpoint.lg.evdev.demuxer;
 
 import interactivespaces.activity.impl.ros.BaseRoutableRosActivity;
 import interactivespaces.util.concurrency.UpdateableLoop;
-import interactivespaces.util.data.json.JsonNavigator;
+import interactivespaces.util.data.json.StandardJsonNavigator;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
@@ -68,7 +68,7 @@ public class EvdevDemuxerActivity extends BaseRoutableRosActivity {
 
   @Override
   public void onNewInputJson(String channelName, Map<String, Object> message) {
-    JsonNavigator json = new JsonNavigator(message);
+    StandardJsonNavigator json = new StandardJsonNavigator(message);
 
     inputHandlers.handleEvent(new InputEvent(json));
   }

@@ -1,10 +1,42 @@
 <?xml version="1.0"?>
 <project type="activity" builder="java">
     <name>Event Device Demuxer</name>
-    <description>
-Separates and aggregates different types of input events.
-    </description>
+    <description>Separates and aggregates different types of input events.</description>
 
     <identifyingName>com.endpoint.lg.evdev.demuxer</identifyingName>
-    <version>1.0.0.dev</version>
+    <version>1.1.0</version>
+
+    <activity type="interactivespaces_native">
+        <name>Event Device Demuxer</name>
+        <class>com.endpoint.lg.evdev.demuxer.EvdevDemuxerActivity</class>
+        <configuration>
+            <property name="space.activity.log.level">
+                <value>info</value>
+            </property>
+            <property name="space.activity.ros.node.name">
+                <value>liquidgalaxy/evdev/demuxer/${lg.evdev.device.name}</value>
+            </property>
+            <property name="space.activity.routes.outputs">
+                <value>key:rel:abs</value>
+            </property>
+            <property name="space.activity.route.output.key">
+                <value>/liquidgalaxy/${space.activity.group}/evdev/${lg.evdev.device.name}/key</value>
+            </property>
+            <property name="space.activity.route.output.rel">
+                <value>/liquidgalaxy/${space.activity.group}/evdev/${lg.evdev.device.name}/rel</value>
+            </property>
+            <property name="space.activity.route.output.abs">
+                <value>/liquidgalaxy/${space.activity.group}/evdev/${lg.evdev.device.name}/abs</value>
+            </property>
+            <property name="space.activity.routes.inputs">
+                <value>raw</value>
+            </property>
+            <property name="space.activity.route.input.raw">
+                <value>/liquidgalaxy/${space.activity.group}/evdev/${lg.evdev.device.name}/raw</value>
+            </property>
+            <property name="lg.evdev.device.name">
+                <value>default</value>
+            </property>
+        </configuration>
+    </activity>
 </project>
